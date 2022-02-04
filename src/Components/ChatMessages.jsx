@@ -1,15 +1,37 @@
-export default function ChatMessages() {
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/firestore';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import ChatMessage from './ChatMessage'
+
+firebase.initializeApp({
+    apiKey: "AIzaSyA9Bigk5Erf9GmxrqNGaRg00aWeE8nXglE",
+    authDomain: "shutthechatup.firebaseapp.com",
+    projectId: "shutthechatup",
+    storageBucket: "shutthechatup.appspot.com",
+    messagingSenderId: "150965025960",
+    appId: "1:150965025960:web:5bb3c24ad37742b92f169d",
+    measurementId: "G-4YSH27MT9M"
+})
+
+const firestore = firebase.firestore();
+
+export default function ChatMessages({user}) {
+
+    const messagesRef = firestore.collection('messages')
+    const query = messagesRef.orderBy('createdAt').limit(20)
+    const [messages] = useCollectionData(query, )
+
     return (
         <div id="messages" className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
 
             {/* {loading && <p>Loading</p>}
-            {error && <p>error</p>}
+            {error && <p>error</p>} */}
             {messages && messages.map((message) => {
-                console.log(message.id)
+                console.log(message)
                 return (
-
-                    <ChatMessage message={message} user={user} key={message.id} />)
-            })} */}
+                    <div>lala</div>
+                    // <ChatMessage message={message} user={user} key={message.id} />
+            )})}
 
 
             <div className="chat-message">

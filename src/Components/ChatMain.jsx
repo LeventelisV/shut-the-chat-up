@@ -10,7 +10,7 @@ export default function ChatMain({ user }) {
             <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
                 <ChatHeader user={user} />
 
-                <ChatMessages />
+                <ChatMessages user={user}/>
 
                 <ChatInput />
 
