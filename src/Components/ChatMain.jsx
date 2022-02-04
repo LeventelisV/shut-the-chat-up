@@ -28,7 +28,7 @@ export default function ChatMain({ user ,auth}) {
 
                 <ChatMessages user={user} messagesRef={messagesRef}/>
 
-                {/* <ChatInput auth={auth} messagesRef={messagesRef}/> */}
+                <ChatInput auth={auth} messagesRef={messagesRef}/>
 
             </div>
 
