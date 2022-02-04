@@ -17,8 +17,9 @@ firebase.initializeApp({
 
 const firestore = firebase.firestore();
 
+
 export default function ChatMain({ user ,auth}) {
-    
+    console.log('-ChatMain')
     const messagesRef = firestore.collection('messages')
     
     return (

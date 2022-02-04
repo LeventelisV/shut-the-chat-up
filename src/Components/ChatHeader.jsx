@@ -1,4 +1,5 @@
 export default function ChatHeader({ user }) {
+    console.log('--ChatHeader')
     return (
         <div className="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
             <div className="flex items-center space-x-4">

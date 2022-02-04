@@ -1,24 +1,25 @@
 import { useState } from "react"
 import firebase from 'firebase/compat/app';
+import { addDoc } from 'firebase/firestore'
 import { v4 as uuidv4 } from 'uuid';
 
 
 
-export default function ChatInput({auth,messagesRef}) {
+export default function ChatInput({ auth, messagesRef,show,setShow }) {
+    console.log('--ChatInput')
     const [inputValue, setInputValue] = useState('')
 
     const sendMessage = async () => {
         if (inputValue.replace(/\s/g, "").length) {
             const { uid, photoURL } = auth.currentUser;
-
+            let mid = uuidv4()
             await messagesRef.add({
                 text: inputValue,
                 uid,
-                messageId: uuidv4(),
+                messageId: mid,
                 photoURL,
-                created_at: firebase.firestore.FieldValue.serverTimestamp()
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
             })
-
             setInputValue('')
         }
     }

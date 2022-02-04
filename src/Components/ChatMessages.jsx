@@ -1,15 +1,17 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore';
+import { useState } from 'react';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import ChatMessage from './ChatMessage'
 
 
 
 export default function ChatMessages({user,messagesRef}) {
+console.log('--ChatMessages')
 
     
     const query = messagesRef.orderBy('createdAt').limit(20)
-    const [messages] = useCollectionData(query )
+    const [messages] = useCollectionData(query)
     console.log(messages)
     return (
         <div id="messages" className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
@@ -17,10 +19,10 @@ export default function ChatMessages({user,messagesRef}) {
             {/* {loading && <p>Loading</p>}
             {error && <p>error</p>} */}
             {messages && messages.map((message) => {
-                console.log(message)
+                // console.log(message)
                 return (
-                    <div>lala</div>
-                    // <ChatMessage message={message} user={user} key={message.id} />
+                    
+                     <ChatMessage message={message} user={user} key={message.messageId} />
             )})}
 
 
