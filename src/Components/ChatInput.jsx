@@ -1,5 +1,7 @@
 import { useState } from "react"
 import firebase from 'firebase/compat/app';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 export default function ChatInput({auth,messagesRef}) {
@@ -12,6 +14,7 @@ export default function ChatInput({auth,messagesRef}) {
             await messagesRef.add({
                 text: inputValue,
                 uid,
+                messageId: uuidv4(),
                 photoURL,
                 created_at: firebase.firestore.FieldValue.serverTimestamp()
             })
