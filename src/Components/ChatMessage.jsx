@@ -1,11 +1,7 @@
-import { getAuth } from 'firebase/auth';
+
 
 export default function ChatMessage({ message, user }) {
-    console.log('---ChatMessage')
-    const auth = getAuth();
-
-    const messageStatus = message.uid === auth.currentUser.uid ? 'sent' : 'received';
-    
+    console.log('---ChatMessage')    
     let date = new Date(message?.createdAt?.seconds * 1000)
 
     return (

@@ -27,7 +27,7 @@ export default function ChatMain({ user ,auth}) {
             <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
                 <ChatHeader user={user} />
 
-                <ChatMessages user={user} messagesRef={messagesRef}/>
+                <ChatMessages user={user} messagesRef={messagesRef} auth={auth}/>
 
                 <ChatInput auth={auth} messagesRef={messagesRef}/>
 
