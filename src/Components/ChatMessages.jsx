@@ -20,11 +20,11 @@ export default function ChatMessages({ user, messagesRef ,auth}) {
             {/* {loading && <p>Loading</p>}
             {error && <p>error</p>} */}
             {messages && messages.map((message) => {
-                const messageSent = message.uid === auth.currentUser.uid;
+                const isMessageSent = message.uid === auth.currentUser.uid;
 
                 return (
 
-                    messageSent ? <ChatMessageSent message={message} user={user} key={message.messageId}/> : <ChatMessageRevieved message={message} user={user} key={message.messageId}/>
+                 <ChatMessage message={message} user={user} key={message.messageId} isMessageSent={isMessageSent} /> 
                     
             )
             })}
