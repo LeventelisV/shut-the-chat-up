@@ -1,12 +1,18 @@
 export default function ChatMessage({ message, user, isMessageSent }) {
-    const showDate = () => {
-        let date = new Date(message?.createdAt?.seconds * 1000)
+    console.log('ChatMessage')
+    
+    const showTime = () => {
+        let messageSent = null
+        let date = new Date(message?.createdAt?.seconds * 1000) 
         let hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
         let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
-
-        let messageSent = hours + ' : ' + minutes
+         if((!isNaN(hours)) && (!isNaN(minutes))){
+            messageSent = hours + ' : ' + minutes
+         }
+         
         return messageSent
     }
+
     return (
         <>
             {isMessageSent && <div className={"chat-message"}>
@@ -16,7 +22,8 @@ export default function ChatMessage({ message, user, isMessageSent }) {
                     </div>
                     <img src={message.photoURL} alt="sender's profile photo" className="w-6 h-6 rounded-full order-1" />
                 </div>
-                <div className="text-xs text-left ml-8 mt-1">{showDate()}</div>
+                
+                <div className="text-xs text-left ml-8 mt-1">{showTime()}</div>
             </div>}
 
 
@@ -27,7 +34,7 @@ export default function ChatMessage({ message, user, isMessageSent }) {
                     </div>
                     <img src={message.photoURL} alt="sender's profile photo" className="w-6 h-6 rounded-full order-2" />
                 </div>
-                <div className=" text-xs text-right mr-8 mt-1">{showDate()}</div>
+                <div className=" text-xs text-right mr-8 mt-1">{showTime()}</div>
 
             </div>}
         </>

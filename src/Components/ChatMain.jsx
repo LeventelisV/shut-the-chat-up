@@ -18,18 +18,19 @@ firebase.initializeApp({
 const firestore = firebase.firestore();
 
 
-export default function ChatMain({ user ,auth}) {
+export default function ChatMain({ user, auth }) {
     console.log('-ChatMain')
+
     const messagesRef = firestore.collection('messages')
-    
+
     return (
         <>
             <div className="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
-                <ChatHeader user={user} auth={auth}/>
+                <ChatHeader user={user} auth={auth} />
 
                 <ChatMessages user={user} messagesRef={messagesRef} auth={auth}/>
 
-                <ChatInput auth={auth} messagesRef={messagesRef}/>
+                <ChatInput auth={auth} messagesRef={messagesRef} />
 
             </div>
 

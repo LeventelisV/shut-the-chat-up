@@ -3,13 +3,13 @@ import 'firebase/compat/firestore';
 import { useState } from 'react';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import ChatMessage from './ChatMessage'
-import ChatMessageRevieved from './ChatMessageRecieved';
-import ChatMessageSent from './ChatMessageSent';
 
 
 
-export default function ChatMessages({ user, messagesRef ,auth}) {
+
+export default function ChatMessages({ user, messagesRef, auth}) {
     console.log('--ChatMessages')
+
 
 
     const query = messagesRef.orderBy('createdAt').limit(20)
@@ -23,10 +23,8 @@ export default function ChatMessages({ user, messagesRef ,auth}) {
                 const isMessageSent = message.uid === auth.currentUser.uid;
 
                 return (
-
-                 <ChatMessage message={message} user={user} key={message.messageId} isMessageSent={isMessageSent} /> 
-                    
-            )
+                    <ChatMessage message={message} user={user} key={message.messageId} isMessageSent={isMessageSent} />
+                )
             })}
 
         </div>

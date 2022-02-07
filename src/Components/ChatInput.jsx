@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 
-export default function ChatInput({ auth, messagesRef,show,setShow }) {
+export default function ChatInput({ auth, messagesRef}) {
     console.log('--ChatInput')
     const [inputValue, setInputValue] = useState('')
 
