@@ -15,7 +15,7 @@ export default function ChatMessageRevieved({ message, user }) {
                 </div>
                 <img src={user.photoURL} alt="sender's profile photo" className="w-6 h-6 rounded-full order-2" />
             </div>
-            <div className=" text-xs flex  mr-8 mt-1">{showDate()}</div>
+            <div className=" text-xs text-right mr-8 mt-1">{showDate()}</div>
 
         </div>
     )

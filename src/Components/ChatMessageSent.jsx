@@ -15,7 +15,7 @@ export default function ChatMessageSent({ message, user }) {
                 </div>
                 <img src={message.photoURL} alt="sender's profile photo" className="w-6 h-6 rounded-full order-1" />
             </div>
-            <div className="text-xs flex items-start ml-8 mt-1">{showDate()}</div>
+            <div className="text-xs text-left ml-8 mt-1">{showDate()}</div>
         </div>
     )
 }
