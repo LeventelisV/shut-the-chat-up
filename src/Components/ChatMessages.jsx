@@ -3,19 +3,19 @@ import 'firebase/compat/firestore';
 import { useEffect, useRef, useState } from 'react';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import ChatMessage from './ChatMessage'
-
-
-
+import useFetchFirebase from '../CustomHooks/UseFetchFirebase';
 
 export default function ChatMessages({ user, messagesRef, auth }) {
     console.log('--ChatMessages')
     const endOfMessages = useRef(null)
-
-
+    
     const query = messagesRef.orderBy('createdAt').limit(20)
-    const [messages] = useCollectionData(query)
 
-    // console.log('endOfMessages',endOfMessages.current.scrollIntoView({ behavior: 'smooth' }))
+    const {messages} = useFetchFirebase(query)
+    
+
+    // const [messages] = useCollectionData(query)
+
     useEffect(() => {
         endOfMessages.current?.scrollIntoView({
             behavior: 'smooth', block: 'end',

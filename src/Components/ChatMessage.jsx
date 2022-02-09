@@ -1,15 +1,11 @@
+import moment from "moment"
 export default function ChatMessage({ message, user, isMessageSent }) {
     console.log('ChatMessage')
     
     const showTime = () => {
-        let messageSent = null
+        
         let date = new Date(message?.createdAt?.seconds * 1000) 
-        let hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
-        let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
-         if((!isNaN(hours)) && (!isNaN(minutes))){
-            messageSent = hours + ' : ' + minutes
-         }
-         
+        let messageSent = moment(date).format('llll')
         return messageSent
     }
 
