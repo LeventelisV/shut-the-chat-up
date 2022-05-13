@@ -6,13 +6,12 @@ import ChatMessage from './ChatMessage'
 import useFetchFirebase from '../CustomHooks/UseFetchFirebase';
 
 export default function ChatMessages({ user, messagesRef, auth }) {
-    console.log('--ChatMessages')
     const endOfMessages = useRef(null)
     
     const query = messagesRef.orderBy('createdAt').limit(20)
 
     const {messages} = useFetchFirebase(query)
-    
+    console.log(messages)
 
     // const [messages] = useCollectionData(query)
 

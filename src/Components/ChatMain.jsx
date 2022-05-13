@@ -6,20 +6,20 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore';
 
 firebase.initializeApp({
-    apiKey: "AIzaSyA9Bigk5Erf9GmxrqNGaRg00aWeE8nXglE",
-    authDomain: "shutthechatup.firebaseapp.com",
-    projectId: "shutthechatup",
-    storageBucket: "shutthechatup.appspot.com",
-    messagingSenderId: "150965025960",
-    appId: "1:150965025960:web:5bb3c24ad37742b92f169d",
-    measurementId: "G-4YSH27MT9M"
+    apiKey: "AIzaSyCx0Y5gGLV_h0fey_7tAnvVjRRJbT2r47E",
+    authDomain: "chat-application-9f3de.firebaseapp.com",
+    projectId: "chat-application-9f3de",
+    storageBucket: "chat-application-9f3de.appspot.com",
+    messagingSenderId: "804049357357",
+    appId: "1:804049357357:web:a74a9d11a49c8cfd0246a4",
+    measurementId: "G-J80SZXXWBW"
 })
+
 
 const firestore = firebase.firestore();
 
 
 export default function ChatMain({ user, auth }) {
-    console.log('-ChatMain')
 
     const messagesRef = firestore.collection('messages')
 
