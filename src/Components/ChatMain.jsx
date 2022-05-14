@@ -14,9 +14,7 @@ firebase.initializeApp({
     measurementId: "G-J80SZXXWBW"
 })
 
-
 const firestore = firebase.firestore();
-
 
 export default function ChatMain({ user, auth }) {
     const messagesRef = firestore.collection('messages')

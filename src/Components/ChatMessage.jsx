@@ -1,9 +1,7 @@
 import moment from "moment"
 
 export default function ChatMessage({ message, isMessageSent }) {
-
     const showTime = () => {
-
         let date = new Date(message?.createdAt?.seconds * 1000)
         let messageSent = moment(date).format('llll')
         return messageSent
@@ -31,7 +29,6 @@ export default function ChatMessage({ message, isMessageSent }) {
                     <img src={message.photoURL} alt="sender" className="w-6 h-6 rounded-full order-2" />
                 </div>
                 <div className=" text-xs text-right mr-8 mt-1">{showTime()}</div>
-
             </div>}
         </>
     )
