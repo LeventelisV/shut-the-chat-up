@@ -1,4 +1,9 @@
 
+type SignOutProps = {
+    
+}
+
+
 export default function SignOut({ auth }) {
     
     const signOut = () => {

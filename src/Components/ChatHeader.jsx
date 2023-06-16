@@ -1,4 +1,4 @@
-import SignOut from './SignOut'
+import SignOut from './SignOut.tsx'
 
 export default function ChatHeader({ user, auth }) {
     return (
